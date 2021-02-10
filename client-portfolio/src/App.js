@@ -13,6 +13,7 @@ import Certificates from './components/Certificates';
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
