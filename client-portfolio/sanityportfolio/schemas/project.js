@@ -35,7 +35,7 @@ export default {
                         title: "Client"
                     },
                     {
-                        value: "Cchool",
+                        value: "Shool",
                         title: "School"
                     },
                     {

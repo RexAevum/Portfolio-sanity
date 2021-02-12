@@ -69,10 +69,17 @@ const Projects = props => {
                             </span>
                             <span>
                                 <strong className="font-bold">Github Link</strong>:{" "}
-                                <a href={project.github} rel="noopener noreferrer" target="_black" className="text-gray-500 font-bond hover:underline hover:text-red-300" >
-                                     {project.title}
-                                    <span role="img" aria-label="right pointer"> ➡️</span>
-                                </a>
+                                {project.github ? (
+                                    <a href={project.github} rel="noopener noreferrer" target="_black" className="text-gray-500 font-bond hover:underline hover:text-red-300" >
+                                        {project.title}
+                                        <span role="img" aria-label="right pointer"> ➡️</span>
+                                    </a>
+                                ) : (
+                                    <span className="text-gray-500 font-bond ">
+                                        Not Available
+                                    </span>
+                                )}
+
                             </span>
                             <p className="inset-y-0 left-0 p-2">
                                 <span>
