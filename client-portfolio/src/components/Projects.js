@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import sanityClient from '../client';
-import stock from '../img/stock_post.png';
+import stock from '../img/code_wall.jpg';
 
 
 const Projects = props => {

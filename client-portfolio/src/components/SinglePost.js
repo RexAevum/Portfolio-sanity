@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import sanityClient from '../client';
 import stock from '../img/code_wall.jpg';
 import BlockContent from '@sanity/block-content-to-react';
+import Spinner from './Spinner';
 
 // geting url for image
 const builder = imageUrlBuilder(sanityClient);
@@ -35,9 +36,9 @@ const SinglePost = props => {
     }, [slug])
 
     // if post is not found -> display loading
-    if (!singlePost) return (<div>Loading...</div>);
+    if (!singlePost) return (<Spinner />);
     return (
-        <main className="bg-gray-200 min-h-screen p-12">
+        <main className="bg-blue-400 min-h-screen p-12">
             <article className="container shadow-lg mx-auto bg-blue-100 rounded-lg">
                 <header className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
