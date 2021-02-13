@@ -18,6 +18,10 @@ const urlFor = source => {
 const About = () =>  {
     const [author, setAuthor] = useState(null);
 
+    // states for expansion
+    const [showExp, setShowExp] = useState(false);
+    const [showEdu, setShowEdu] = useState(false);
+
     useEffect(() => {
         sanityClient.fetch(`*[_type == "author"]{
             name,
@@ -25,6 +29,11 @@ const About = () =>  {
             "authorImage": image.asset->url
         }`).then(data => setAuthor(data[0])).catch("This is about error");
     }, []);
+
+    // functions for showing parts of ui
+    const eduShow = (e) => {
+
+    }
     
     // needed in case author has not yet been loaded
     if (!author) return (<Spinner />);
@@ -46,9 +55,31 @@ const About = () =>  {
                         </div>
                     </div>
                 </section>
-                <Experience />
                 <hr></hr>
-                <Education />
+                <section className="bg-blue-800 rounded-lg shadow-2xl ">
+                    <div className="pt-5">
+                        <h1 className="text-gray-50 text-3xl justify-center text-center flex">
+                            <button className="hover:text-pink-500" onClick={e => setShowExp(!showExp)}>{showExp ? (<span>Hide Experience</span>) : (<span>Show Experience</span>)}</button>
+                        </h1>
+                        <br/>
+                        {showExp && (
+                            <Experience />
+                        )}   
+                    </div>
+                    <hr className="mt-10"/>
+                    <div className="mt-10">
+                        <h1 className="text-gray-50 text-3xl justify-center text-center flex">
+                            <button className="hover:text-pink-500" onClick={e => setShowEdu(!showEdu)}>{showEdu ? (<span>Hide Education</span>) : (<span>Show Education</span>)}</button>
+                        </h1>
+                        <br/>
+                        {showEdu && (
+                            <Education />
+                        )}
+                    </div>
+                    <div><br/><br/></div>
+                </section>
+
+                
             </div>
         </main>
     )

@@ -32,7 +32,7 @@ const Education = props => {
 
     // if post is not found -> display loading
     if (!educationData) return (<Spinner />);
-    console.log(educationData)
+
     return (
         <Fragment>
             <section className="grid grid-cols-1">
@@ -47,8 +47,7 @@ const Education = props => {
                         <div className="flex justify-between items-center">
                             <p>
                             <span className="ml-9">
-                                <strong className="text-lg lg:text-xl text-gray-600 text-bold font-normal"><i>Degree</i></strong>:{" "}
-                                <span className="text-xl lg:text-2xl text-bold name">{education.degree}</span>
+                                <span className="text-xl lg:text-2xl text-bold name">{education.degree} - {education.fieldofstudy}</span>
                             </span>
                             </p>
                             <span class="px-2 py-1 mr-9 text-gray-900 list">{education.start.split("-")[0] + "/" + education.start.split("-")[1]} - {education.current ? (<span>Current</span>) : (education.end.split("-")[0] + "/" + education.end.split("-")[1])}</span>
