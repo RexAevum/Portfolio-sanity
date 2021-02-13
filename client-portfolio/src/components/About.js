@@ -6,6 +6,8 @@ import imageUrlBuilder from '@sanity/image-url';
 // image
 import background from '../img/warm_code.jpg';
 import Spinner from './Spinner';
+import Experience from './Experience';
+import Education from './Education';
 
 // geting url for image
 const builder = imageUrlBuilder(sanityClient);
@@ -44,6 +46,9 @@ const About = () =>  {
                         </div>
                     </div>
                 </section>
+                <Experience />
+                <hr></hr>
+                <Education />
             </div>
         </main>
     )

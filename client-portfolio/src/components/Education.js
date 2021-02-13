@@ -1,0 +1,70 @@
+import React, { useState, useEffect, Fragment } from 'react';
+import { useParams } from 'react-router-dom';
+import imageUrlBuilder from '@sanity/image-url';
+import PropTypes from 'prop-types';
+import sanityClient from '../client';
+import stock from '../img/code_wall.jpg';
+import BlockContent from '@sanity/block-content-to-react';
+import Spinner from './Spinner';
+import { ProjectId } from '../default';
+
+// @todo - add image to schema for diploma / proof of completion
+const builder = imageUrlBuilder(sanityClient);
+const urlFor = source => {
+    return builder.image(source);
+}
+
+const Education = props => {
+    const [educationData, seteducation] = useState(null); // set up state
+    
+    // get data from sanity
+    useEffect( () => {
+        sanityClient.fetch(`*[_type == "education"]{
+            school,
+            degree,
+            fieldofstudy,
+            honors,
+            start,
+            end,
+            current
+        }`).then(data => seteducation(data)).catch(console.error);
+    }, [])
+
+    // if post is not found -> display loading
+    if (!educationData) return (<Spinner />);
+    console.log(educationData)
+    return (
+        <Fragment>
+            <section className="grid grid-cols-1">
+            <main className="bg-blue-800 min-h-screen p-12">
+                {educationData && educationData.slice(0).reverse().map( (education, index) => (
+                <div className="container shadow-lg mx-auto bg-green-50 rounded-lg">
+                    <div className="h-full w-full flex name items-center justify-left pt-8 pl-6"> 
+                                <h1 className="name text-xl lg:text-4xl">
+                                    {education.school}
+                                </h1>
+                        </div> 
+                        <div className="flex justify-between items-center">
+                            <p>
+                            <span className="ml-9">
+                                <strong className="text-lg lg:text-xl text-gray-600 text-bold font-normal"><i>Degree</i></strong>:{" "}
+                                <span className="text-xl lg:text-2xl text-bold name">{education.degree}</span>
+                            </span>
+                            </p>
+                            <span class="px-2 py-1 mr-9 text-gray-900 list">{education.start.split("-")[0] + "/" + education.start.split("-")[1]} - {education.current ? (<span>Current</span>) : (education.end.split("-")[0] + "/" + education.end.split("-")[1])}</span>
+                        </div>
+                        <div>
+
+                        </div> 
+                    <span className="justify-left ml-9 text-lg lg:text-xl text-gray-600"><i>Honors</i></span>:{" "}   
+                    <div className="px-20 py-2 prose lg:prose-xl max-2-full text-lg list">
+                        <BlockContent blocks={education.honors} projectId={ProjectId} dataset="production"/>
+                    </div>
+                </div>
+                ))}
+            </main>
+            </section>
+        </Fragment>
+    )}
+
+    export default Education;
