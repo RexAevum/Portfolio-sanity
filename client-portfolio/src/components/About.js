@@ -40,7 +40,7 @@ const About = () =>  {
 
     return (
         <main className="bg-gray-900 min-h-screen relative">
-            <img src={background} alt="Image" className="absolute w-full" />
+            <img src={background} alt="Image" className="absolute w-full h-full"/>
             <div className="p-10 lg:pt-48 container mx-auto relative">
                 <section className="bg-blue-800 rounded-lg shadow-2xl lg:flex p-20">
                 {author.authorImage !== null && (
