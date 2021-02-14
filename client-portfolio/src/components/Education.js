@@ -55,7 +55,7 @@ const Education = props => {
                         <div>
 
                         </div> 
-                    <span className="justify-left ml-9 text-lg lg:text-xl text-gray-600"><i>Honors</i></span>:{" "}   
+                    <span className="justify-left ml-9 text-lg lg:text-xl text-gray-600"><i>Standouts</i></span>:{" "}   
                     <div className="px-20 py-2 prose lg:prose-xl max-2-full text-lg list">
                         <BlockContent blocks={education.honors} projectId={ProjectId} dataset="production"/>
                     </div>
