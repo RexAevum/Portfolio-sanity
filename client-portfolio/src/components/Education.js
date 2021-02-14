@@ -14,6 +14,20 @@ const urlFor = source => {
     return builder.image(source);
 }
 
+// sort
+function compare(a, b) {
+    const A = a.start;
+    const B = b.start;
+
+    let comparison = 0;
+    if (A > B) {
+      comparison = 1;
+    } else if (A < B) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
 const Education = props => {
     const [educationData, seteducation] = useState(null); // set up state
     
@@ -32,6 +46,7 @@ const Education = props => {
 
     // if post is not found -> display loading
     if (!educationData) return (<Spinner />);
+    educationData.sort(compare);
 
     return (
         <Fragment>

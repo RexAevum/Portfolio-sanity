@@ -9,6 +9,20 @@ const urlFor = source => {
     return builder.image(source);
 }
 
+// sort
+function compare(a, b) {
+    const A = a.start;
+    const B = b.start;
+
+    let comparison = 0;
+    if (A > B) {
+      comparison = 1;
+    } else if (A < B) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
 const Experience = () => {
     const [experienceData, setExperience] = useState(null); // set up state
     
@@ -21,19 +35,22 @@ const Experience = () => {
             start,
             current,
             end,
-            skills
+            skills,
+            order
         }`).then(data => setExperience(data)).catch(console.error);
     }, [])
 
     // if post is not found -> display loading
     if (!experienceData) return (<Spinner />);
 
+    experienceData.sort(compare);
+
     return (
         <Fragment>
             <section className="grid grid-cols-1">
                 <main className="bg-blue-800 min-h-screen p-12 rounded">
                 {experienceData && experienceData.slice(0).reverse().map( (experience, index) => (
-                <div className="container shadow-lg mx-auto bg-red-50 rounded-lg mb-4">
+                <div className="container shadow-lg mx-auto bg-red-50 rounded-lg mb-4" key={index}>
                     <div className="h-full w-full flex name items-center justify-left pt-8 pl-6"> 
                                 <h1 className="name text-xl lg:text-4xl">
                                     {experience.company}

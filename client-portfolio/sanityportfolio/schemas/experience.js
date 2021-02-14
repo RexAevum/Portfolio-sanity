@@ -42,6 +42,20 @@ export default {
             of: [{
                 type: "string"
             }]
+        }, 
+        {
+            name: "order",
+            title: "Order",
+            type: "number"
+        }
+    ],
+    ordering: [
+        {
+            title: "Start Date, Newest",
+            name: "startNewest",
+            by: [
+                {field: "start", direction: "desc"}
+            ]
         }
     ],
     initialValue: {
