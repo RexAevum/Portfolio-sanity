@@ -36,7 +36,7 @@ const Projects = props => {
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center name">My Projects</h1>
                 <h2 className="text-lg text-grey-600 flex justify-center mb-12">Check Out Some Of My Projects</h2>
-                <section className="grid grid-cols-2 gap-8">
+                <section className="grid grid-cols-2 sm:grid-cols-1 gap-8">
                     {projectData && projectData.map( (project, index) => (
                     <article className="relative rounded-lg shadow-xl bg-red-50" key={index}>
                         <span className="block h-64 relative rounded shadow leading-snug bg-blue-50 " key={index}>
