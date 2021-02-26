@@ -25,8 +25,8 @@ const Navbar = () => {
                         My Posts
                     </NavLink>
                 </nav>
-                <div className="block flex-wrap py-3 px-3 my-6 bg-blue-800">
-                    <SocialIcon url={myMail} nework="email" label="DevConnector" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} className="inline-flex items-center mb-1 md:mx-2"/>
+                <div className="inline-flex flex-wrap sm:felx-nowrap py-3 px-3 my-6 mx-2">
+                    <SocialIcon url={myMail} nework="email" label="DevConnector" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} className="inline-flex items-center mb-2 md:mx-2"/>
                     <SocialIcon url={LinkedIn} className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} className="inline-flex items-center mb-2 md:mx-2" />
                     <SocialIcon url={Github} className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} className="inline-flex items-center md:mx-2 sm:mb-2"/>
                 </div>
