@@ -2,7 +2,21 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import sanityClient from '../client';
 import stock from '../img/code_wall.jpg';
+import Spinner from './Spinner';
 
+// sort
+function compare(a, b) {
+    const A = a.date;
+    const B = b.date;
+
+    let comparison = 0;
+    if (A > B) {
+      comparison = -1;
+    } else if (A < B) {
+      comparison = 1;
+    }
+    return comparison;
+  }
 
 const Projects = props => {
     const [projectData, setProjectData] = useState(null);
@@ -28,15 +42,16 @@ const Projects = props => {
             }
         }`)
         .then( data => setProjectData(data)).catch(console.error);
-    }, [])
+    }, []);
     
-
+    if(!projectData) return (<Spinner/>);
+    projectData.sort(compare);
     return (
         <main className="bg-blue-400 min-h-screen p-12">
             <section className="container mx-auto">
-                <h1 className="text-5xl flex justify-center name">My Projects</h1>
-                <h2 className="text-lg text-grey-600 flex justify-center mb-12">Check Out Some Of My Projects</h2>
-                <section className="grid grid-cols-2 sm:grid-cols-1 gap-8">
+                <h1 className="text-3xl sm:text-5xl flex justify-center name">My Projects</h1>
+                <h2 className="text-base sm:text-lg text-grey-600 flex text-center justify-center sm:mb-12">Check Out Some Of My Projects</h2>
+                <section className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-8">
                     {projectData && projectData.map( (project, index) => (
                     <article className="relative rounded-lg shadow-xl bg-red-50" key={index}>
                         <span className="block h-64 relative rounded shadow leading-snug bg-blue-50 " key={index}>
@@ -87,7 +102,7 @@ const Projects = props => {
                                     {project.tech ? project.tech : "Not Specified"}
                                 </span>
                             </p>
-                            <p className="my-6 text-lg text-gray-700 leading-relaxed">
+                            <p className="my-6 text-sm sm:text-lg text-gray-700 leading-relaxed">
                                 {project.description}
                             </p>
                             {project.link && (
@@ -105,10 +120,6 @@ const Projects = props => {
             </section>
         </main>
     )
-}
-
-Projects.propTypes = {
-
 }
 
 export default Projects
