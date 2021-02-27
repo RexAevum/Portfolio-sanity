@@ -43,7 +43,7 @@ const SinglePost = props => {
             <article className="container shadow-lg mx-auto bg-blue-100 rounded-lg">
                 <header className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
-                        <div className="bg-white bg-opacity-90 rounded p-12 bg-color-red-900">
+                        <div className="bg-white bg-opacity-90 rounded p-12">
                             <h1 className="name text-3xl lg:text-6xl mb-4">{singlePost.title}</h1>
                             <div className="flex flex-nowrap justify-center text-grey-800">
                                 {/* The following code will display image AND allow foreasy editing of the image */
