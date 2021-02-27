@@ -23,6 +23,7 @@ const SinglePost = props => {
             title,
             _id,
             slug,
+            publishedAt,
             mainImage{
                 asset->{
                     _id,
@@ -44,14 +45,14 @@ const SinglePost = props => {
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
                         <div className="bg-white bg-opacity-90 rounded p-12">
                             <h1 className="name text-3xl lg:text-6xl mb-4">{singlePost.title}</h1>
-                            <div className="flex justify-center text-grey-800">
+                            <div className="flex flex-nowrap justify-center text-grey-800">
                                 {/* The following code will display image AND allow foreasy editing of the image */
                                 singlePost.authorImage && (
                                     <img src={urlFor(singlePost.authorImage).url()}
                                     alt={singlePost.name}
-                                    className="w-10 h-10 rounded-full" />
+                                    className="inline sm:mt-1 w-10 h-12 sm:w-auto rounded-full" />
                                 )}
-                                <p className="name flex item-center pl-2 text-2xl">
+                                <p className="name item-center pl-2 pt-2 text-2xl break-normal whitespace-nowrap">
                                     {singlePost.name}
                                 </p>
                             </div>
@@ -59,7 +60,7 @@ const SinglePost = props => {
                     </div>
                     <img src={singlePost.mainImage ? singlePost.mainImage.asset.url : stock}
                     alt={singlePost.name}
-                    className="w-full object-cover rounded-t"
+                    className="w-full h-full object-cover rounded-t"
                     style={{ height: "400px" }} />
                 </header>
                 <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-2-full">

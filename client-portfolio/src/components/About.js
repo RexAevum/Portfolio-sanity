@@ -41,23 +41,23 @@ const About = () =>  {
     return (
         <main className="bg-gray-900 min-h-screen relative">
             <img src={background} alt="Image" className="absolute w-full h-full"/>
-            <div className="p-10 lg:pt-48 container mx-auto relative">
-                <section className="bg-blue-800 rounded-lg shadow-2xl lg:flex p-20">
+            <div className="p-3 sm:p-10 lg:pt-48 container mx-auto relative">
+                <section className="bg-blue-800 rounded-lg shadow-2xl lg:flex p-3 sm:p-20">
                 {author.authorImage !== null && (
-                        <img src={urlFor(author.authorImage).url()} className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8" alt={author.name} />
+                        <img src={urlFor(author.authorImage).url()} className="shadow-2xl flex rounded object-center w-full h-full max-w-64 sm:w-2/3 sm:h-2/3 lg:w-64 lg:h-64 sm:ml-24 lg:mr-8" alt={author.name} />
                     )}
-                    <div className="text-lg flex flex-col justify-center">
-                        <h1 className="name text-6xl text-blue-300 mb-4">
+                    <div className="text-lg flex flex-col sm:justify-center">
+                        <h1 className="name text-4xl text-center sm:text-6xl text-blue-300 mb-4">
                             <span className="text-red-100">{author.name}</span>
                         </h1>
-                        <div className="prose lg:prose-xl text-white">
+                        <div className="prose flex-shrink lg:prose-xl text-white">
                             <BlockContent blocks={author.bio} projectId="vl3zfjoo" dataset="production"/>
                         </div>
                     </div>
                 </section>
                 <hr></hr>
-                <section className="bg-blue-800 rounded-lg shadow-2xl ">
-                    <div className="pt-5">
+                <section className="bg-blue-800 rounded-lg shadow-2xl">
+                    <div className="pt-10">
                         <h1 className="text-gray-50 text-3xl justify-center text-center flex">
                             <button className="hover:text-pink-500" onClick={e => setShowExp(!showExp)}>{showExp ? (<span>Hide Experience</span>) : (<span>Show Experience</span>)}</button>
                         </h1>
@@ -67,7 +67,7 @@ const About = () =>  {
                         )}   
                     </div>
                     <hr className="mt-10"/>
-                    <div className="mt-10">
+                    <div className="pt-10">
                         <h1 className="text-gray-50 text-3xl justify-center text-center flex">
                             <button className="hover:text-pink-500" onClick={e => setShowEdu(!showEdu)}>{showEdu ? (<span>Hide Education</span>) : (<span>Show Education</span>)}</button>
                         </h1>
