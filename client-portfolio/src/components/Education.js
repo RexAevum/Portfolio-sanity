@@ -51,27 +51,27 @@ const Education = props => {
     return (
         <Fragment>
             <section className="grid grid-cols-1">
-            <main className="bg-blue-800 min-h-screen p-12">
+            <main className="bg-blue-800 min-h-screen p-3 sm:p-12">
                 {educationData && educationData.slice(0).reverse().map( (education, index) => (
-                <div className="container shadow-lg mx-auto bg-green-50 rounded-lg">
-                    <div className="h-full w-full flex name items-center justify-left pt-8 pl-6"> 
+                <div className="container shadow-lg w-full mx-auto bg-green-50 rounded-lg">
+                    <div className="h-full w-full flex name items-center justify-left pt-8 pl-2 sm:pl-6"> 
                                 <h1 className="name text-xl lg:text-4xl">
                                     {education.school}
                                 </h1>
                         </div> 
                         <div className="flex justify-between items-center">
                             <p>
-                            <span className="ml-9">
-                                <span className="text-xl lg:text-2xl text-bold name">{education.degree} - {education.fieldofstudy}</span>
+                            <span className="sm:ml-9">
+                                <span className="text-left text-base sm:text-xl lg:text-2xl text-bold name pl-3 sm:pl-8">{education.degree} - {education.fieldofstudy}</span>
                             </span>
                             </p>
-                            <span class="px-2 py-1 mr-9 text-gray-900 list">{education.start.split("-")[0] + "/" + education.start.split("-")[1]} - {education.current ? (<span>Current</span>) : (education.end.split("-")[0] + "/" + education.end.split("-")[1])}</span>
+                            <span className="text-center text-xs whitespace-pre-line italic sm:whitespace-nowrap sm:text-base px-2 py-1 mr-9 text-gray-900 list">{education.start.split("-")[0] + "/" + education.start.split("-")[1]} - {education.current ? (<span>Current</span>) : (education.end.split("-")[0] + "/" + education.end.split("-")[1])}</span>
                         </div>
                         <div>
 
                         </div> 
-                    <span className="justify-left ml-9 text-lg lg:text-xl text-gray-600"><i>Standouts</i></span>:{" "}   
-                    <div className="px-20 py-2 prose lg:prose-xl max-2-full text-lg list">
+                    <span className="justify-left ml-2 sm:ml-9 text-lg lg:text-xl text-gray-600"><i>Standouts</i></span>:{" "}   
+                    <div className="px-20 py-2 prose lg:prose-xl max-2-full text-sm sm:text-lg list">
                         <BlockContent blocks={education.honors} projectId={ProjectId} dataset="production"/>
                     </div>
                 </div>
