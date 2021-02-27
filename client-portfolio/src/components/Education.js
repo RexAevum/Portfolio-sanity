@@ -58,7 +58,8 @@ const Education = props => {
                                 <h1 className="name text-xl lg:text-4xl">
                                     {education.school}
                                 </h1>
-                        </div> 
+                        </div>
+                        <hr color="gray"></hr> 
                         <div className="flex justify-between items-center">
                             <p>
                             <span className="sm:ml-9">

@@ -48,7 +48,7 @@ const Experience = () => {
     return (
         <Fragment>
             <section className="grid grid-cols-1">
-                <main className="bg-blue-800 min-h-screen p-12 rounded">
+                <main className="bg-blue-800 min-h-screen p-3 sm:p-12 rounded">
                 {experienceData && experienceData.slice(0).reverse().map( (experience, index) => (
                 <div className="container shadow-lg mx-auto bg-red-50 rounded-lg mb-4" key={index}>
                     <div className="h-full w-full flex name items-center justify-left pt-8 pl-6"> 
@@ -57,25 +57,25 @@ const Experience = () => {
                                 </h1>
                         </div> 
                         <div className="flex justify-left text-gray-600 ml-6">
-                            <p className="flex item-center justify-left pl-1 text-lg lg:text-xl">
+                            <p className="flex item-center justify-left pl-1 text-xs sm:text-lg lg:text-xl">
                                 <i>{experience.location}</i>
                             </p>
                         </div>
                         <hr color="gray"></hr>
                         <div className="flex justify-between items-center">
                             <p>
-                            <span className="ml-9">
-                                <strong className="text-lg lg:text-xl text-gray-600 text-bold font-normal"><i>Role</i></strong>:{" "}
-                                <span className="text-xl lg:text-2xl text-bold name">{experience.role}</span>
+                            <span className="ml-2 sm:ml-9">
+                                <strong className="text-xs sm:text-lg lg:text-xl text-gray-600 text-bold font-normal"><i>Role: </i></strong>{" "}
+                                <span className="whitespace-nowrap text-base sm:text-xl lg:text-2xl text-bold name">{experience.role}</span>
                             </span>
                             </p>
-                            <span class="px-2 py-1 mr-9 text-gray-900 list">{experience.start.split("-")[0] + "/" + experience.start.split("-")[1]} - {experience.current ? (<span>Current</span>) : (experience.end.split("-")[0] + "/" + experience.end.split("-")[1])}</span>
+                            <span class="whitespace-normal text-xs px-2 py-1 sm:mr-9 text-gray-900 list italic">{experience.start.split("-")[0] + "/" + experience.start.split("-")[1]} - {experience.current ? (<span>Current</span>) : (experience.end.split("-")[0] + "/" + experience.end.split("-")[1])}</span>
                     </div> 
-                    <span className="justify-left ml-9 text-lg lg:text-xl text-gray-600"><i>Skills</i></span>:{" "}   
-                    <div className="px-20 py-2 prose lg:prose-xl max-2-full">
+                    <span className="justify-left ml-2 sm:ml-9 text-xs sm:text-lg lg:text-xl text-gray-600"><i>Skills</i></span>:{" "}   
+                    <div className="px-5 sm:px-20 py-2 prose lg:prose-xl max-2-full">
                         {experience.skills.map( skill => (
                             <ul className="list-disc ml-1 mt-1 break-words list">
-                                <li className="text-lg">{skill}</li>
+                                <li className="text-sm sm:text-lg">{skill}</li>
                             </ul>
                         ))}
                     </div>
