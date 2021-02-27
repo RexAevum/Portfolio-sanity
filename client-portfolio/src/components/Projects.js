@@ -47,7 +47,7 @@ const Projects = props => {
     if(!projectData) return (<Spinner/>);
     projectData.sort(compare);
     return (
-        <main className="bg-blue-400 min-h-screen p-12">
+        <main className="bg-blue-400 min-h-screen p-3 sm:p-12">
             <section className="container mx-auto">
                 <h1 className="text-3xl sm:text-5xl flex justify-center name">My Projects</h1>
                 <h2 className="text-base sm:text-lg text-grey-600 flex text-center justify-center sm:mb-12">Check Out Some Of My Projects</h2>
