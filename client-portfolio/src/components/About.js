@@ -44,7 +44,7 @@ const About = () =>  {
             <div className="p-3 sm:p-10 lg:pt-48 container mx-auto relative">
                 <section className="bg-blue-800 rounded-lg shadow-2xl lg:flex p-3 sm:p-20">
                 {author.authorImage !== null && (
-                        <img src={urlFor(author.authorImage).url()} className="shadow-2xl flex rounded object-center w-full h-full max-w-64 sm:w-2/3 sm:h-2/3 lg:w-64 lg:h-64 sm:ml-24 lg:mr-8" alt={author.name} />
+                        <img src={urlFor(author.authorImage).url()} className="bg-blue-800 flex rounded object-center object-scale-down w-full h-full max-w-64 sm:w-2/3 sm:h-2/3 lg:w-64 lg:h-64 sm:ml-24 lg:mr-8" alt={author.name} />
                     )}
                     <div className="text-lg flex flex-col sm:justify-center">
                         <h1 className="name text-4xl text-center sm:text-6xl text-blue-300 mb-4">
